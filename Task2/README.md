@@ -177,26 +177,33 @@ Example Dockerfile for a Java Application
 Here’s a sample Dockerfile for a Java application, such as a Spring Boot web application:
 
 
-## dockerfile
+# dockerfile
 - Use an official OpenJDK image as the base image
+
 FROM openjdk:17-jdk-slim
 
 - Set the working directory inside the container
+
 WORKDIR /app
 
 - Copy the compiled JAR file (assumes you have built the JAR using Maven/Gradle)
+
 COPY target/my-app.jar /app/my-app.jar
 
 - Install any additional dependencies (if needed, e.g., curl for health checks)
+
 RUN apt-get update && apt-get install -y curl
 
 - Set environment variables (optional)
+
 ENV JAVA_OPTS="-Xms512m -Xmx1024m"
 
 - Expose the port the application runs on
+
 EXPOSE 8080
 
 - Run the Java application
+
 CMD ["java", "-jar", "/app/my-app.jar"]
 
 -------------------------------------------------------------------------------------------------------
