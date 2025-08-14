@@ -177,26 +177,26 @@ Example Dockerfile for a Java Application
 Here’s a sample Dockerfile for a Java application, such as a Spring Boot web application:
 
 
-dockerfile
-# Use an official OpenJDK image as the base image
+## dockerfile
+- Use an official OpenJDK image as the base image
 FROM openjdk:17-jdk-slim
 
-# Set the working directory inside the container
+- Set the working directory inside the container
 WORKDIR /app
 
-# Copy the compiled JAR file (assumes you have built the JAR using Maven/Gradle)
+- Copy the compiled JAR file (assumes you have built the JAR using Maven/Gradle)
 COPY target/my-app.jar /app/my-app.jar
 
-# Install any additional dependencies (if needed, e.g., curl for health checks)
+- Install any additional dependencies (if needed, e.g., curl for health checks)
 RUN apt-get update && apt-get install -y curl
 
-# Set environment variables (optional)
+- Set environment variables (optional)
 ENV JAVA_OPTS="-Xms512m -Xmx1024m"
 
-# Expose the port the application runs on
+- Expose the port the application runs on
 EXPOSE 8080
 
-# Run the Java application
+- Run the Java application
 CMD ["java", "-jar", "/app/my-app.jar"]
 
 -------------------------------------------------------------------------------------------------------
@@ -228,7 +228,7 @@ For Java apps, use multi-stage builds to compile the code in one stage and copy 
 
 Example multi-stage build for Java:
 
-dockerfile
+## dockerfile
 # Build stage
 FROM maven:3.8-openjdk-17 AS builder
 
