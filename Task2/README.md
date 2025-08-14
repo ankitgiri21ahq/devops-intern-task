@@ -236,10 +236,10 @@ COPY . .
 RUN mvn clean package
 
 # Final stage
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY --from=builder /build/target/my-app.jar /app/my-app.jar
-EXPOSE 8080
-CMD ["java", "-jar", "/app/my-app.jar"]
+-FROM openjdk:17-jdk-slim
+-WORKDIR /app
+-COPY --from=builder /build/target/my-app.jar /app/my-app.jar
+-EXPOSE 8080
+-CMD ["java", "-jar", "/app/my-app.jar"]
 
 ----------------------------------------------------------------------------------------------------------------
