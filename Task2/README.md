@@ -231,15 +231,22 @@ Example multi-stage build for Java:
 dockerfile
 # Build stage
 FROM maven:3.8-openjdk-17 AS builder
+
 WORKDIR /build
+
 COPY . .
+
 RUN mvn clean package
 
 # Final stage
--FROM openjdk:17-jdk-slim
--WORKDIR /app
--COPY --from=builder /build/target/my-app.jar /app/my-app.jar
--EXPOSE 8080
--CMD ["java", "-jar", "/app/my-app.jar"]
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY --from=builder /build/target/my-app.jar /app/my-app.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/app/my-app.jar"]
 
 ----------------------------------------------------------------------------------------------------------------
