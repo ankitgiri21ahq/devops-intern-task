@@ -1,3 +1,7 @@
+# DevOps Intern Task - Git Commands
+
+This repository is part of my DevOps internship, demonstrating basic Docker commands.
+
 # Useful Docker Commands with Use Cases
 
 Docker is a platform for containerizing applications, enabling consistent development, testing, and deployment. Below is a list of the most useful Docker commands along with their use cases.
